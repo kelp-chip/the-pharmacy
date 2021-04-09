@@ -8,13 +8,14 @@ module.exports = {
       primaryKey: true,
       autoIncrement: true,
     },
-    username: {
+    pseudonym: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
     },
     tab: {
       type: DataTypes.INTEGER,
+      defaultValue: 0,
     },
   }),
   Product: sequelize.define("product", {
@@ -27,6 +28,30 @@ module.exports = {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
+    },
+    price: {
+      type: DataTypes.DECIMAL,
+      allowNull: false,
+    },
+    description: {
+      type: DataTypes.TEXT("medium"),
+      allowNull: false,
+    },
+    images: {
+      type: DataTypes.TEXT("long"),
+      allowNull: true,
+    },
+  }),
+  Passcode: sequelize.define("passcode", {
+    id: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      primaryKey: true,
+    },
+    passcode: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
   }),
 };
