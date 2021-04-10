@@ -27,12 +27,10 @@ let mockData = [
 ];
 
 function App() {
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(true);
   return (
     <Router>
-      <Route path="/">
-        <button>protected place</button>
-      </Route>
+      <Route path="/"></Route>
       <ProtectedRoute
         path="/example"
         component={ProtectedExample}
