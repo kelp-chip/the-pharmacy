@@ -32,6 +32,8 @@ function AlcoholList (props) {
               <h2 className='rodalName'>{drink.name.toUpperCase()}</h2>
               <img className='rodalImg' src={drink.images} alt=''></img>
               <div className='rodalPrice'>${drink.price.toFixed(2)}</div>
+              <input className='addCartAmt' type='number' value='1' min='0' ></input>
+              <button className='addToCart' type='submit'>Add To Cart</button>
             </Rodal>
           </div>
         )

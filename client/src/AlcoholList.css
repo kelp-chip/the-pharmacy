@@ -467,6 +467,18 @@
   }
 }
 
+
+
+
+/*
+
+CSS STARTS DOWN HERE
+
+
+
+*/
+
+
 .rodal-door-leave {
   -webkit-animation: rodal-door-leave both;
   animation: rodal-door-leave both;
@@ -483,3 +495,4 @@
 .rodalPrice{
   text-align: center;
 }
+
