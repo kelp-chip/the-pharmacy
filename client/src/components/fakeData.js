@@ -28,7 +28,7 @@ const fakeProducts = [
   },
 ];
 
-const mockData = [
+const drinks = [
   {
     id: 1,
     name: "gin",
@@ -47,4 +47,4 @@ const mockData = [
   },
 ];
 
-module.exports = { fakeProducts, mockData };
+module.exports = { fakeProducts, drinks };

@@ -2,8 +2,9 @@ import { Redirect } from "react-router-dom";
 const { useState } = require("react");
 const axios = require("axios");
 const { useAuth } = require("../context/auth");
+const { fakeProducts } = require("../components/fakeData");
 
-function FauxLanding({ fakeProducts }) {
+function FauxLanding() {
   const [passcode, setPasscode] = useState("");
   const [isConfirmed, setIsConfirmed] = useState(false);
   const { setAuthTokens } = useAuth();
@@ -33,7 +34,7 @@ function FauxLanding({ fakeProducts }) {
       <h1>FauxLanding</h1>
       <div>
         <h1>Take a Look At Our Products</h1>
-        {/* {fakeProducts.map((fakeProduct, i) => {
+        {fakeProducts.map((fakeProduct, i) => {
           return (
             <div key={i}>
               <h4 className="fakeProductName">{fakeProduct.name}</h4>
@@ -46,7 +47,7 @@ function FauxLanding({ fakeProducts }) {
               ></img>
             </div>
           );
-        })} */}
+        })}
       </div>
       <form onSubmit={handleSubmit}>
         <input

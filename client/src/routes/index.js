@@ -5,9 +5,6 @@ import FauxLanding from "../pages/FauxLanding";
 import QuestionSubmitted from "../pages/QuestionSubmitted";
 import ProtectedExample from "../pages/ProtectedExample";
 import NotFound from "../pages/NotFound";
-import { fakeProducts, mockData } from "../components/fakeData";
-
-console.log(fakeProducts);
 
 const Routes = () => {
   return (
@@ -16,13 +13,8 @@ const Routes = () => {
         <h1>home</h1>
       </Route>
       <Switch>
-        <Route
-          exact
-          path="/"
-          component={FauxLanding}
-          fakeProducts={fakeProducts}
-        />
-        <Route path="/store" component={AlcoholList} mockData={mockData} />
+        <Route exact path="/" component={FauxLanding} />
+        <Route path="/store" component={AlcoholList} />
         <Route path="/question" component={QuestionSubmitted} />
         <Route path="/example" component={ProtectedExample} />
         <Route path="*" component={NotFound} />
