@@ -41,30 +41,31 @@ const validateTokens = (req, res, next) => {
   const customerToken = req.cookies["customer-token"];
 
   if (!accessToken) {
-    return res
-      .status(400)
-      .json({ auth: false, message: "How did you get in here??" });
+    return res.status(404).json({ auth: false, passGiven: false });
   } else if (!customerToken) {
-    return res.status(400).json({
+    return res.status(404).json({
       auth: false,
-      message: "We didn't quite catch your name, friend.",
+      passGiven: true,
     });
   } else {
     try {
       const validAccessToken = verify(accessToken, process.env.PASS_SECRET);
       const validCustomerToken = verify(
         customerToken,
-        process.env.SESSION_SECRET
+        process.env.SESSION_SECRET,
+        (err, decoded) => {
+          if (validAccessToken && !err) {
+            req.authenticated = true;
+            res.status(200).send({
+              auth: true,
+              customerId: decoded.id,
+              customer: decoded.pseudonym,
+            });
+          }
+        }
       );
-      if (validAccessToken && validCustomerToken) {
-        req.authenticated = true;
-        return next();
-      }
     } catch (err) {
-      return res
-        .status(400)
-        .json({ error: err })
-        .send("You Have NOT Been Authenticated");
+      return res.status(404).json({ error: err }).send({ auth: false });
     }
   }
 };

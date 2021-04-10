@@ -1,11 +1,14 @@
-import "./App.css";
-import "./components/FauxLanding.jsx";
-import "./components/AlcoholList.jsx";
-import AlcoholList from "./components/AlcoholList";
-import { useState } from "react";
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
-import ProtectedRoute from "./ProtectedRoute";
+// import { useState, useEffect } from "react";
+import "./styles/App.css";
+import FauxLanding from "./pages/FauxLanding.jsx";
+// import SignIn from "./pages/SignIn.jsx";
+import axios from "axios";
+import AlcoholList from "./pages/AlcoholList";
+// import QuestionSubmitted from "./pages/QuestionSubmitted";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import ProtectedRoute from "./components/ProtectedRoute";
 import ProtectedExample from "./pages/ProtectedExample";
+import { AuthContext } from "./context/auth";
 
 let mockData = [
   {
@@ -27,18 +30,86 @@ let mockData = [
 ];
 
 function App() {
-  const [isAuth, setIsAuth] = useState(true);
+  // const { setAuthTokens } = useAuth();
+
+  // const checkAuth = async () => {
+  //   await axios
+  //     .get("http://localhost:8000/isAuth", { withCredentials: true })
+  //     .then(async (result) => {
+  //       // console.log(result);
+  //       if (result.data.auth) {
+  //         setAuthTokens(result.data);
+  //         console.log("has been set: true");
+  //         // return true;
+  //       } else {
+  //         console.log("has not been set: false");
+  //         // return false;
+  //       }
+  //     });
+  // };
+
+  const login = async () => {
+    await axios.post(
+      "http://localhost:8000/passcode",
+      { passcode: "Jerry sent me" },
+      { withCredentials: true }
+    );
+    await axios.post(
+      "http://localhost:8000/customer",
+      { pseudonym: "Pug" },
+      { withCredentials: true }
+    );
+  };
+
   return (
-    <Router>
-      <Route path="/"></Route>
-      <ProtectedRoute
-        path="/example"
-        component={ProtectedExample}
-        isAuth={isAuth}
-      />
-      <AlcoholList drinks={mockData} />
-    </Router>
+    <AuthContext.Provider value={true}>
+      <Router>
+        {/* <Route path="/">
+        <button onClick={login}>login</button>
+        <button>logout</button>
+      </Route> */}
+        <Switch>
+          <Route path="/" exact>
+            <h1>home</h1>
+          </Route>
+
+          <FauxLanding path="/home" />
+          <AlcoholList path="/store" drinks={mockData} />
+
+          <ProtectedRoute path="/protected" component={ProtectedExample} />
+        </Switch>
+        <button onClick={login}>login</button>
+        <button>logout</button>
+      </Router>
+    </AuthContext.Provider>
   );
 }
 
 export default App;
+
+// const pages = {
+//   FauxLanding: <FauxLanding setCurrentPage={setCurrentPage} />,
+//   AlcoholList: (
+//     <ProtectedRoute
+//       drinks={mockData}
+//       path="/store"
+//       component={AlcoholList}
+//       isAuth={isAuth}
+//     />
+//   ),
+//   SignIn: (
+//     <SignIn
+//       path="/signin"
+//       pseudonym={pseudonym}
+//       setPseudonym={setPseudonym}
+//       setCurrentPage={setCurrentPage}
+//     />
+//   ),
+//   QuestionSubmitted: (
+//     <QuestionSubmitted
+//       path="/question"
+//       component={QuestionSubmitted}
+//       isAuth={true}
+//     />
+//   ),
+// };

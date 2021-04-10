@@ -1,6 +1,8 @@
 import { Route, Redirect } from "react-router-dom";
+// import { useState, useEffect } from "react";
+// import axios from "axios";
 
-function ProtectedRoute({ isAuth: isAuth, component: Component, ...rest }) {
+function ProtectedRoute({ isAuth, component: Component, ...rest }) {
   return (
     <Route
       {...rest}
