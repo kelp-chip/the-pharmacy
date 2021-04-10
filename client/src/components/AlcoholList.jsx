@@ -11,7 +11,7 @@ function AlcoholList (props) {
   const [visibleRodal, toggleRodal] = useState(false);
 
   function showRodal(){
-    toggleRodal(true)
+    toggleRodal(true);
   }
 
   function closeRodal(){
@@ -29,7 +29,9 @@ function AlcoholList (props) {
             <div className='drinkDesc'>"{drink.description}"</div>
             <img className='drinkImg' src={drink.images} alt='hi'></img>
             <Rodal visible={visibleRodal} onClose={closeRodal}>
-              <div className='rodalName'> </div>
+              <h2 className='rodalName'>{drink.name.toUpperCase()}</h2>
+              <img className='rodalImg' src={drink.images} alt=''></img>
+              <div className='rodalPrice'>${drink.price.toFixed(2)}</div>
             </Rodal>
           </div>
         )
