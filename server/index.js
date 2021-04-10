@@ -37,7 +37,7 @@ app.post("/createPasscode", async (req, res) => {
   const { passcode } = req.body;
   const hashedPasscode = await bcrypt.hash(passcode, saltRounds);
 
-  Passcode.create({ id: "master", passcode: hashedPasscode })
+  Passcode.create({ where: { id: "master", passcode: hashedPasscode } })
     .then((info) => {
       console.log("New passcode successfully inserted into the db");
       res.json(true);
@@ -50,7 +50,7 @@ app.post("/createPasscode", async (req, res) => {
 
 app.post("/passcode", async (req, res) => {
   const { passcode } = req.body;
-  const auth = await Passcode.findOne({ id: "master" });
+  const auth = await Passcode.findOne({ where: { id: "master" } });
   bcrypt.compare(passcode, auth.passcode).then((result) => {
     if (result) {
       const accessToken = createAccessTokens(result);
@@ -67,7 +67,7 @@ app.post("/passcode", async (req, res) => {
 
 app.post("/customer", async (req, res) => {
   const { pseudonym } = req.body;
-  const customer = await User.findOne({ pseudonym: pseudonym });
+  const customer = await User.findOne({ where: { pseudonym: pseudonym } });
   if (customer) {
     const customerToken = createCustomerTokens(customer);
     res.cookie("customer-token", customerToken, {
@@ -86,7 +86,7 @@ app.post("/customer", async (req, res) => {
 app.post("/newCustomer", validateToken, async (req, res) => {
   const { pseudonym } = req.body;
   try {
-    const auth = await User.create({ pseudonym: pseudonym });
+    const auth = await User.create({ where: { pseudonym: pseudonym } });
     res.json({ auth: true, customer: auth });
   } catch {
     res
