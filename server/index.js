@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 const express = require("express");
 const app = express();
 const bcrypt = require("bcrypt");
@@ -91,11 +89,7 @@ app.post("/newCustomer", validateToken, async (req, res) => {
   const { pseudonym } = req.body;
   try {
     const auth = await User.create({ pseudonym: pseudonym });
-<<<<<<< HEAD
     res.send({ auth: true });
-=======
-    res.json({ auth: true, customer: auth });
->>>>>>> dd222ae70904e188433133a10e2fc3a596755436
   } catch {
     res
       .status(404)
