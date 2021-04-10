@@ -10,7 +10,8 @@ function Drink(props){
   // let cartAmt = document.getElementById('addCartAmt').value;
 
   function changeDrinkAmt(){
-    changeAmt(drinkAmt);
+    let amount = document.getElementById('addCartAmt').value;
+    changeAmt(amount);
   }
 
   function showRodal(){
@@ -32,7 +33,7 @@ function Drink(props){
         <img className='rodalImg' src={props.drink.images} alt=''></img>
         <div className='rodalPrice'>${props.drink.price.toFixed(2)}</div>
         <input id='addCartAmt' className='addCartAmt' type='number' min='0' onChange={changeDrinkAmt} ></input>
-        <button className='addToCart' onClick={props.submitToCart(props.drink.name, props.drink.price, drinkAmt)} type='submit'>Add To Cart</button>
+        <button className='addToCart' onClick={()=>{props.submitToCart(props.drink.name, props.drink.price, drinkAmt)}} type='submit'>Add To Cart</button>
       </Rodal>
     </div>
   )
