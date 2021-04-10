@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const app = express();
 const bcrypt = require("bcrypt");
@@ -37,7 +39,7 @@ app.post("/createPasscode", async (req, res) => {
   const { passcode } = req.body;
   const hashedPasscode = await bcrypt.hash(passcode, saltRounds);
 
-  Passcode.create({ where: { id: "master", passcode: hashedPasscode } })
+  Passcode.create({ id: "master", passcode: hashedPasscode })
     .then((info) => {
       console.log("New passcode successfully inserted into the db");
       res.json(true);
@@ -86,7 +88,7 @@ app.post("/customer", async (req, res) => {
 app.post("/newCustomer", validateToken, async (req, res) => {
   const { pseudonym } = req.body;
   try {
-    const auth = await User.create({ where: { pseudonym: pseudonym } });
+    const auth = await User.create({ pseudonym: pseudonym });
     res.json({ auth: true, customer: auth });
   } catch {
     res
@@ -104,6 +106,6 @@ app.get("/testValidation", validateTokens, (req, res) => {
 
 //------------------------Start Server-------------------------
 app.listen(PORT, async () => {
-  await db.sync({ force: true });
+  // await db.sync({ force: true });
   console.log(`Now listening on http://localhost:${PORT}`);
 });
