@@ -104,6 +104,6 @@ app.get("/testValidation", validateTokens, (req, res) => {
 
 //------------------------Start Server-------------------------
 app.listen(PORT, async () => {
-  // await db.sync({ force: true });
+  await db.sync({ force: true });
   console.log(`Now listening on http://localhost:${PORT}`);
 });
