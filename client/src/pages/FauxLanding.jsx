@@ -1,8 +1,12 @@
+import { Redirect } from "react-router-dom";
 const { useState } = require("react");
 const axios = require("axios");
+const { useAuth } = require("../context/auth");
 
 function FauxLanding({ setCurrentPage }) {
   const [passcode, setPasscode] = useState("");
+  const [isConfirmed, setIsConfirmed] = useState(false);
+  const { setAuthTokens } = useAuth();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,12 +18,15 @@ function FauxLanding({ setCurrentPage }) {
       )
       .then((result) => {
         if (result.data) {
-          setCurrentPage("SignIn");
-        } else {
-          setCurrentPage("QuestionSubmitted");
+          setAuthTokens(result.data);
+          setIsConfirmed(true);
         }
       });
   };
+
+  if (isConfirmed) {
+    return <Redirect to="/signin" />;
+  }
 
   return (
     <div>

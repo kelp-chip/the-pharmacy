@@ -1,4 +1,4 @@
-// import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./styles/App.css";
 import FauxLanding from "./pages/FauxLanding.jsx";
 // import SignIn from "./pages/SignIn.jsx";
@@ -8,7 +8,7 @@ import AlcoholList from "./pages/AlcoholList";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ProtectedExample from "./pages/ProtectedExample";
-import { AuthContext } from "./context/auth";
+import { AuthContext, setAuthTokens } from "./context/auth";
 
 let mockData = [
   {
@@ -30,8 +30,23 @@ let mockData = [
 ];
 
 function App() {
+  const [authTokens, setAuthTokens] = useState(false);
   // const { setAuthTokens } = useAuth();
 
+  const setTokens = async (data) => {
+    await axios
+      .get("http://localhost:8000/isAuth", { withCredentials: true })
+      .then(async (result) => {
+        if (result.data.auth) {
+          setAuthTokens(result.data);
+          // return true;
+        } else {
+          setAuthTokens(false);
+          console.log("has not been set: false");
+          // return false;
+        }
+      });
+  };
   // const checkAuth = async () => {
   //   await axios
   //     .get("http://localhost:8000/isAuth", { withCredentials: true })
@@ -62,12 +77,8 @@ function App() {
   };
 
   return (
-    <AuthContext.Provider value={true}>
+    <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
       <Router>
-        {/* <Route path="/">
-        <button onClick={login}>login</button>
-        <button>logout</button>
-      </Route> */}
         <Switch>
           <Route path="/" exact>
             <h1>home</h1>
