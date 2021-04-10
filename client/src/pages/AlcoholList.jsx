@@ -1,4 +1,4 @@
-import "../AlcoholList.css";
+import "../styles/AlcoholList.css";
 import Drink from '../components/Drink.jsx'
 import React, {useState} from 'react';
 

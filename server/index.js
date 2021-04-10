@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 const express = require("express");
 const app = express();
 const bcrypt = require("bcrypt");
@@ -41,6 +39,7 @@ app.post("/createPasscode", async (req, res) => {
 
   Passcode.create({ id: "master", passcode: hashedPasscode })
     .then((info) => {
+      console.log(info);
       console.log("New passcode successfully inserted into the db");
       res.json(true);
     })
@@ -56,6 +55,7 @@ app.post("/passcode", async (req, res) => {
   bcrypt.compare(passcode, auth.passcode).then((result) => {
     if (result) {
       const accessToken = createAccessTokens(result);
+      console.log(accessToken);
       res.cookie("access-token", accessToken, {
         maxAge: 60 * 60 * 24 * 1000,
         httpOnly: true,
@@ -76,7 +76,7 @@ app.post("/customer", async (req, res) => {
       maxAge: 60 * 60 * 24 * 1000,
       httpOnly: true,
     });
-    res.json({ auth: true, customer: customer });
+    res.send({ auth: true });
   } else {
     res.json({
       auth: false,
@@ -89,19 +89,20 @@ app.post("/newCustomer", validateToken, async (req, res) => {
   const { pseudonym } = req.body;
   try {
     const auth = await User.create({ pseudonym: pseudonym });
-    res.json({ auth: true, customer: auth });
+    res.send({ auth: true });
   } catch {
     res
       .status(404)
-      .json({ auth: false, message: "pseudonym already in exists" });
+      .send({ auth: false, message: "pseudonym already in exists" });
   }
 });
 
-app.get("/testValidation", validateTokens, (req, res) => {
+app.get("/isAuth", validateTokens, (req, res) => {
+  res.send(true);
   //you should only be able to access this route if you have given the passcode and your name
-  res.json(
-    "You have been properly authorized and authenticated, you have access to our secret pages!"
-  );
+  // validateTokens(req, res, () => {
+  //   res.send({ auth: true });
+  // });
 });
 
 //------------------------Start Server-------------------------
