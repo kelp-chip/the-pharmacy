@@ -17,7 +17,6 @@ const Routes = () => {
         <Route exact path="/" component={FauxLanding} />
         <Route exact path="/order" component={Order} />
         <Route path="/store" component={Store} />
-        <Route path="/order" component={Order} />
         <Route path="/confirm" component={Confirm} />
         <Route path="/example" component={ProtectedExample} />
         <Route path="*" component={NotFound} />
