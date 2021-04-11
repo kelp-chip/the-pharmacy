@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { withRouter, Link } from "react-router-dom";
-import "./styles/index.css";
+import "./index.js";
 
 function Confirm(props) {
   const [orderNum, increaseOrder] = useState(1);
