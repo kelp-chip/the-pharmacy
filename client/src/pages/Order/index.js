@@ -7,41 +7,41 @@ import BagList from "./components/BagList";
 function Order(props) {
   const parseBag = (oldBag, seq) => {
     if (seq == 1) {
-      let gin = { name: 'gin', total: 0, amount: 0 }
-      let whiskey = { name: 'whiskey', total: 0, amount: 0 }
-      let moonshine = { name: 'moonshine', total: 0, amount: 0 }
+      let gin = { name: "gin", total: 0, amount: 0 };
+      let whiskey = { name: "whiskey", total: 0, amount: 0 };
+      let moonshine = { name: "moonshine", total: 0, amount: 0 };
       let total = { amount: 0, cost: 0 };
       let output = [gin, whiskey, moonshine];
       oldBag.map((item) => {
-        if (item.name == 'gin') {
+        if (item.name == "gin") {
           gin.total += item.price;
           gin.amount += item.amount;
-        } else if (item.name == 'whiskey') {
+        } else if (item.name == "whiskey") {
           whiskey.total += item.price;
           whiskey.amount += item.amount;
-        } else if (item.name == 'moonshine') {
+        } else if (item.name == "moonshine") {
           moonshine.total += item.price;
           moonshine.amount += item.amount;
         }
-      })
+      });
       return output;
     } else {
       let output = { amount: 0, cost: 0 };
       oldBag.map((item) => {
-        if (item.name == 'gin') {
-          output.cost += item.price
+        if (item.name == "gin") {
+          output.cost += item.price;
           output.amount += item.amount;
-        } else if (item.name == 'whiskey') {
-          output.cost += item.price
+        } else if (item.name == "whiskey") {
+          output.cost += item.price;
           output.amount += item.amount;
-        } else if (item.name == 'moonshine') {
-          output.cost += item.price
+        } else if (item.name == "moonshine") {
+          output.cost += item.price;
           output.amount += item.amount;
         }
-      })
+      });
       return output;
     }
-  }
+  };
 
   const { state } = props.location;
   const newBag = parseBag(state.bag, 1);
@@ -62,10 +62,12 @@ function Order(props) {
           <Link
             to={{
               pathname: "/store",
-              state: state
+              state: state,
             }}
             className="store-return"
-          > Shopping Bag
+          >
+            {" "}
+            Shopping Bag
           </Link>
         </div>
       )}

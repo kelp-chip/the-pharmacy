@@ -3,16 +3,14 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Confirm from "../pages/Confirm";
 import Order from "../pages/Order";
 import Store from "../pages/Store";
-import FauxLanding from "../pages/FauxLanding";
+import FauxLanding from "../pages/FauxLanding/FauxLanding";
 import ProtectedExample from "../pages/ProtectedExample";
 import NotFound from "../pages/NotFound";
 
 const Routes = () => {
   return (
     <Router>
-      <Route path="/" exact>
-        <h1>home</h1>
-      </Route>
+      <Route path="/" exact></Route>
       <Switch>
         <Route exact path="/" component={FauxLanding} />
         <Route exact path="/order" component={Order} />

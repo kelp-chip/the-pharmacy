@@ -15,8 +15,13 @@ function Drink({ drink, addToBag }) {
   }
 
   return (
-    <div>
-      <img className="drinkImg" onClick={showRodal} src={drink.images} alt="hi"></img>
+    <div className="drink">
+      <img
+        className="drinkImg"
+        onClick={showRodal}
+        src={drink.images}
+        alt="hi"
+      ></img>
       <Rodal visible={visibleRodal} onClose={closeRodal} className="popupStyle">
         <div>
           <h2 className="rodalName">{drink.name.toUpperCase()}</h2>
@@ -33,9 +38,14 @@ function Drink({ drink, addToBag }) {
         ></input>
         <button
           className="addToCart"
-          onClick={(e) =>
-            addToBag({ name: drink.name, price: drink.price, amount: drinkAmt })
-          }
+          onClick={(e) => {
+            closeRodal();
+            addToBag({
+              name: drink.name,
+              price: drink.price,
+              amount: drinkAmt,
+            });
+          }}
           type="submit"
         >
           Add to Bag
