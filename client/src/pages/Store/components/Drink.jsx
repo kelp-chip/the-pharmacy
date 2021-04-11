@@ -6,23 +6,23 @@ function Drink({ drink, addToBag }) {
   const [drinkAmt, changeAmt] = useState(1);
   const [visibleRodal, toggleRodal] = useState(false);
 
+  function showRodal() {
+    toggleRodal(true);
+  }
+
+  function closeRodal() {
+    toggleRodal(false);
+  }
+
   return (
-    <div className="drink">
+    <div>
       <img
         className="drinkImg"
+        onClick={showRodal}
         src={drink.images}
         alt="hi"
-        onClick={() => {
-          toggleRodal(true);
-        }}
       ></img>
-      <Rodal
-        visible={visibleRodal}
-        onClose={() => {
-          toggleRodal(false);
-        }}
-        className="popupStyle"
-      >
+      <Rodal visible={visibleRodal} onClose={closeRodal} className="popupStyle">
         <div>
           <h2 className="rodalName">{drink.name.toUpperCase()}</h2>
           <div className="rodalPrice">${drink.price.toFixed(2)}</div>

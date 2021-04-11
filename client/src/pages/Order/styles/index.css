@@ -1,55 +1,22 @@
-body {
-  overflow: hidden;
-}
-
-.leftBottles {
-  position: absolute;
-  left: 0;
-  top: 150px;
-  z-index: -10;
-}
-
-.rightBottles {
-  position: absolute;
-  top: 200px;
-  right: 0;
-  z-index: -10;
-}
-
-header {
-  margin-top: 50px;
-  /* background-color: blue; */
+.bag-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.banner {
-  position: relative;
-}
-
-.cart {
-  cursor: pointer;
-  margin-left: 30px;
-  position: relative;
-}
-
-.cartIcon {
-  position: relative;
-}
-
-.circle {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  background-color: rgb(235, 235, 235);
-  border-radius: 50px;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  right: -38px;
-  top: 0px;
-  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: "PT Serif", serif;
-  font-size: 24px;
+}
+
+.bag-container > * {
+  margin: 0;
+}
+
+.bag-header {
+  font-size: 3rem;
+  padding: 0.5rem 2rem;
+}
+
+.order-note {
+  padding: 1rem 2rem;
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 0.85);
 }

@@ -1,0 +1,10 @@
+.item-container {
+  display: flex;
+  background-color: rgb(205, 203, 203);
+  /* margin: .4rem 0rem; */
+  padding: 0rem 8rem;
+}
+
+.drink-name {
+  margin-right: 2rem;
+}

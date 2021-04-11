@@ -1,33 +1,33 @@
+import { Link } from "react-router-dom";
 import { useState } from 'react';
+import "../styles/BagList.css";
+
 
 import BagItem from './BagItem';
 
 function BagList({ bag }) {
-  let totalItems = 0;
-  let totalCost = 0;
-  const calcTotal = function() {
-    if (!bag.length) return 0;
-    let output = 0;
-    bag.map((item) => {
-      output += Number(item[2]);
-    })
-    return output;
-  }
-
-  if (bag.length) {
-    totalItems = bag.length;
-    totalCost = calcTotal();
-  }
+  console.log(bag);
   return (
-    <div>
-      {bag.map((drink, index) => (
-        <BagItem drink={drink} key={index} />
-      ))}
+    <div className="list-container">
+      <div className="bag-list">
+        <h2 className="bag-list-header">Beverages Ordered</h2>
+        {bag && bag.map((drink, index) => (
+          <BagItem drink={drink} key={index} />
+        ))}
+      </div>
       <div className="bag-total">
         <h3>Number of Items</h3>
-        {totalItems}
+        {/* {totalItems} */}
         <h3>Total Payment</h3>
-        {totalCost}
+        {/* {totalCost} */}
+        <Link
+          to={{
+            pathname: "/confirm",
+            state: bag
+          }}
+          className="confirm-order"
+        > Confirm Order
+        </Link>
       </div>
     </div>
   );
