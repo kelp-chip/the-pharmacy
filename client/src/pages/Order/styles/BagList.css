@@ -9,18 +9,20 @@
 
 .confirm-order,
 .store-return {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none !important;
   color: black;
   margin-top: 1rem;
-  background-color: rgba(224, 224, 224, 0.363);
+  background-color: rgba(182, 182, 182, 0.363);
   padding: 0.5rem 0.5rem;
   /* border: 1px solid black; */
 }
 
 .confirm-order:hover,
 .store-return:hover {
-  background-color: rgb(172, 172, 172);
+  background-color: rgba(172, 172, 172, 0.815);
 }
 
 .bag-list-header {
@@ -37,4 +39,10 @@ table {
   width: 500px;
   margin: 20px 0;
   text-align: left;
+}
+
+.links-container {
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
 }

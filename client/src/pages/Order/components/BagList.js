@@ -35,19 +35,31 @@ function BagList({ bag, totals }) {
             <td> </td>
           </tr>
         </table>
-        <Link
-          to={{
-            pathname: "/store",
-          }}
-          className="store-return"
-        >
-          {" "}
-          Return to Store
-          <img
-            src="https://res.cloudinary.com/dli6sknqy/image/upload/v1618148304/finger_tdppaq.svg"
-            width="50px"
-          ></img>
-        </Link>
+        <div className="links-container">
+          <Link
+            to={{
+              pathname: "/store",
+            }}
+            className="store-return"
+          >
+            {" "}
+            Return to Store
+            <img
+              src="https://res.cloudinary.com/dli6sknqy/image/upload/v1618148304/finger_tdppaq.svg"
+              width="50px"
+            ></img>
+          </Link>
+          <Link
+            to={{
+              pathname: "/confirm",
+              state: data,
+            }}
+            className="confirm-order"
+          >
+            {" "}
+            Confirm Order
+          </Link>
+        </div>
       </div>
       {/* <div className="bag-total">
         <h3>Number of Items</h3>
