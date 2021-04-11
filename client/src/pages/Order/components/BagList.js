@@ -6,24 +6,31 @@ import "../styles/BagList.css";
 import BagItem from './BagItem';
 
 function BagList({ bag, totals }) {
-  console.log(bag);
+  const data = { bag: bag, totals: totals };
+  console.log(totals)
   return (
     <div className="list-container">
       <div className="bag-list">
         <h2 className="bag-list-header">Beverages Ordered</h2>
-        {bag && bag.map((drink, index) => (
-          <BagItem drink={drink} key={index} />
-        ))}
+        {bag &&
+          bag.map((drink, index) => <BagItem drink={drink} key={index} />)}
+        <Link
+          to={{
+            pathname: "/store",
+          }}
+          className="store-return"
+        > Return to Store
+        </Link>
       </div>
       <div className="bag-total">
         <h3>Number of Items</h3>
         {totals.amount}
         <h3>Total Payment</h3>
-        {totals.cost}
+        {"$" + totals.cost}
         <Link
           to={{
             pathname: "/confirm",
-            state: bag
+            state: data,
           }}
           className="confirm-order"
         > Confirm Order

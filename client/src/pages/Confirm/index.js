@@ -5,14 +5,15 @@ function Confirm(props) {
   const [orderNum, increaseOrder] = useState(1);
   const { state } = props.location;
   localStorage.removeItem("luckysProhibitionBag");
+  console.log(state);
 
   return (
     <div>
       <h1>Thank you for ordering with us!</h1>
       <p>Your order has been received</p>
       <h3>Order No: {orderNum} </h3>
-      <h3>{/*Amount of Items */} Items Ordered</h3>
-      <h3>Total: {/* Total Cost */}</h3>
+      <h3>{state.totals.amount} Items Ordered</h3>
+      <h3>Total: ${state.totals.cost}</h3>
       <p>
         Knock twice after hours then head to the back to pick up your order. Ask
         for Lucky.
