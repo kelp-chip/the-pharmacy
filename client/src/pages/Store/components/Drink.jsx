@@ -7,9 +7,9 @@ function Drink({ drink, addToBag }) {
   const [visibleRodal, toggleRodal] = useState(false);
 
   return (
-    <div key={i} onClick={showRodal}>
+    <div onClick={() => {toggleRodal(true)}}>
       <img className="drinkImg" src={drink.images} alt="hi"></img>
-      <Rodal visible={visibleRodal} onClose={closeRodal} className="popupStyle">
+      <Rodal visible={visibleRodal} onClose={() => {toggleRodal(false)}} className="popupStyle">
         <div>
           <h2 className="rodalName">{drink.name.toUpperCase()}</h2>
           <div className="rodalPrice">${drink.price.toFixed(2)}</div>

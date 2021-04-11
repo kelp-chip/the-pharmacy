@@ -1,12 +1,8 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-<<<<<<< HEAD
-=======
 import Confirm from "../pages/Confirm";
 import Order from "../pages/Order";
->>>>>>> e0e268311534762bfbf23bea4d450418bc1935f9
 import Store from "../pages/Store";
-import Order from "../pages/Order";
 import FauxLanding from "../pages/FauxLanding";
 import ProtectedExample from "../pages/ProtectedExample";
 import NotFound from "../pages/NotFound";

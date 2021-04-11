@@ -17,6 +17,6 @@ function AlcoholList({ cart, drinks, addToBag }) {
         })}
       </div>
     </>
-}
+  )}
 
 export default AlcoholList;
