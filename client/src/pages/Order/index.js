@@ -29,13 +29,13 @@ function Order(props) {
       let output = { amount: 0, cost: 0 };
       oldBag.map((item) => {
         if (item.name == "gin") {
-          output.cost += item.price;
+          output.cost += (item.price * item.amount);
           output.amount += item.amount;
         } else if (item.name == "whiskey") {
-          output.cost += item.price;
+          output.cost += (item.price * item.amount);
           output.amount += item.amount;
         } else if (item.name == "moonshine") {
-          output.cost += item.price;
+          output.cost += (item.price * item.amount);
           output.amount += item.amount;
         }
       });
@@ -46,7 +46,6 @@ function Order(props) {
   const { state } = props.location;
   const newBag = parseBag(state.bag, 1);
   const totals = parseBag(state.bag);
-  console.log(totals);
 
   return (
     <div className="bag-container">

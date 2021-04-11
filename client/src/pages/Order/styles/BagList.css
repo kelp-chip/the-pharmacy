@@ -37,11 +37,12 @@
   top: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
 }
 
 .bag-list-header {
   margin-top: 0rem;
+  text-align: left;
 }
 
 .empty-bag {
