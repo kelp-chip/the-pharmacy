@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { withRouter } from "react-router-dom";
+import "./styles/index.css";
 
 import BagList from "./components/BagList";
 
-function Order () {
+function Order() {
   return (
     <div>
       <h1>Your Bag</h1>

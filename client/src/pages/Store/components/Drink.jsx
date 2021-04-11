@@ -13,18 +13,14 @@ function Drink(props) {
     changeAmt(amount);
   }
 
-  function showRodal() {
-    toggleRodal(true);
-  }
-
-  function closeRodal() {
-    toggleRodal(false);
-  }
-
   return (
-    <div key={props.i} onClick={showRodal}>
+    <div key={props.i} onClick={() => toggleRodal(true)} className="drink">
       <img className="drinkImg" src={props.drink.images} alt="hi"></img>
-      <Rodal visible={visibleRodal} onClose={closeRodal} className="popupStyle">
+      <Rodal
+        visible={visibleRodal}
+        onClose={() => toggleRodal(false)}
+        className="popupStyle"
+      >
         <div>
           <h2 className="rodalName">{props.drink.name.toUpperCase()}</h2>
           <div className="rodalPrice">${props.drink.price.toFixed(2)}</div>
