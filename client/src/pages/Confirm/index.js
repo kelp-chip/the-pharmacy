@@ -36,7 +36,7 @@ function Confirm(props) {
           }}
           className="store-return"
         >
-          Back to the pharmacy
+          Back to the Pharmacy
         </Link>
       </p>
     </div>
