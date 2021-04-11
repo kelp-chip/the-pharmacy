@@ -43,7 +43,7 @@ function Store() {
       <div className="rightBottles">
         <img src={right_bottle} alt="background bottles"></img>
       </div>
-      <AlcoholList drinks={fakeData.drinks} />
+      <AlcoholList drinks={fakeData.drinks} addToBag={addToBag} />
     </div>
   );
 }
