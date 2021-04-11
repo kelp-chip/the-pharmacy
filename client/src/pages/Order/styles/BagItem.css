@@ -8,3 +8,13 @@
 .drink-name {
   margin-right: 2rem;
 }
+
+tr {
+  /* background-color: blue; */
+  /* border: solid black 2px; */
+}
+
+td {
+  /* background-color: brown; */
+  /* border: solid black 2px; */
+}

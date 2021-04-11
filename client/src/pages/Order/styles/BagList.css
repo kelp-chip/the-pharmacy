@@ -17,17 +17,19 @@
   padding: 1rem 2rem;
 }
 
-.confirm-order, .store-return {
+.confirm-order,
+.store-return {
   text-align: center;
   text-decoration: none !important;
   color: black;
   margin-top: 1rem;
   background-color: rgb(239, 239, 239);
-  padding: .5rem .5rem;
+  padding: 0.5rem 0.5rem;
   border: 1px solid black;
 }
 
-.confirm-order:hover, .store-return:hover {
+.confirm-order:hover,
+.store-return:hover {
   background-color: rgb(172, 172, 172);
 }
 
@@ -47,4 +49,8 @@
 
 .empty-bag {
   text-align: center;
+}
+
+table {
+  border-collapse: collapse;
 }

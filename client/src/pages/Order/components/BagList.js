@@ -1,25 +1,32 @@
 import { Link } from "react-router-dom";
-import { useState } from 'react';
+import { useState } from "react";
 import "../styles/BagList.css";
 
-
-import BagItem from './BagItem';
+import BagItem from "./BagItem";
 
 function BagList({ bag, totals }) {
   const data = { bag: bag, totals: totals };
-  console.log(totals)
+  console.log(totals);
   return (
     <div className="list-container">
       <div className="bag-list">
         <h2 className="bag-list-header">Beverages Ordered</h2>
-        {bag &&
-          bag.map((drink, index) => <BagItem drink={drink} key={index} />)}
+        <table border="1">
+          {bag &&
+            bag.map((drink, index) => (
+              <tr>
+                <BagItem drink={drink} key={index} />
+              </tr>
+            ))}
+        </table>
         <Link
           to={{
             pathname: "/store",
           }}
           className="store-return"
-        > Return to Store
+        >
+          {" "}
+          Return to Store
         </Link>
       </div>
       <div className="bag-total">
@@ -33,7 +40,9 @@ function BagList({ bag, totals }) {
             state: data,
           }}
           className="confirm-order"
-        > Confirm Order
+        >
+          {" "}
+          Confirm Order
         </Link>
       </div>
     </div>

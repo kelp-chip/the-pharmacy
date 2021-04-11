@@ -3,12 +3,15 @@ import "../styles/BagItem.css";
 
 function BagItem({ drink }) {
   return (
-    <div className="item-container">
-      <h3 className="drink-name">{drink.name}: </h3>
-      <p>{drink.price}</p>
-      <p>{drink.amount}</p>
-      <button>Delete</button>
-    </div>
+    // <tr className="item-container">
+    <>
+      <td>{drink.amount}</td>
+      <td>
+        <span className="drink-name">{drink.name} </span>
+      </td>
+      <td>{drink.price}</td>
+      <td>delete</td>
+    </>
   );
 }
 
