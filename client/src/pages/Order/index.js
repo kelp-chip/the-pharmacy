@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import "./styles/index.css";
+import Layout from "../../components/Layout/Layout";
 
 import BagList from "./components/BagList";
 
@@ -49,30 +50,33 @@ function Order(props) {
   console.log(totals);
 
   return (
-    <div className="bag-container">
-      <h1 className="bag-header">Your Bag</h1>
-      {state && state.bag.length > 0 ? (
-        <>
-          <p className="order-note">Review your order below.</p>
-          <BagList className="bag-list" bag={newBag} totals={totals} />
-        </>
-      ) : (
-        <div className="empty-bag">
-          <p>Your bag is empty.</p>
-          <p>Click below to return to our shop.</p>
-          <Link
-            to={{
-              pathname: "/store",
-              state: state,
-            }}
-            className="store-return"
-          >
-            {" "}
-            Shopping Bag
-          </Link>
-        </div>
-      )}
-    </div>
+    <>
+      <Layout bag={state.bag} cartCount={state.cartCount} />
+      <div className="bag-container">
+        <h1 className="bag-header">Your Bag</h1>
+        {state && state.bag.length > 0 ? (
+          <>
+            <p className="order-note">Review your order below.</p>
+            <BagList className="bag-list" bag={newBag} totals={totals} />
+          </>
+        ) : (
+          <div className="empty-bag">
+            <p>Your bag is empty.</p>
+            <p>Click below to return to our shop.</p>
+            <Link
+              to={{
+                pathname: "/store",
+                state: state,
+              }}
+              className="store-return"
+            >
+              {" "}
+              Shopping Bag
+            </Link>
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 

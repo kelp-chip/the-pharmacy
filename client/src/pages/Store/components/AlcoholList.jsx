@@ -2,7 +2,7 @@ import "../styles/AlcoholList.css";
 import Drink from "../components/Drink.jsx";
 import { useState } from "react";
 
-function AlcoholList({ cart, drinks, addToBag, incrementCartCount }) {
+function AlcoholList({ drinks, addToBag, incrementCartCount }) {
   return (
     <>
       <div className="drinksContainer">
