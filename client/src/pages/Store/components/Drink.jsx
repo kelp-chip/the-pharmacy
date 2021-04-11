@@ -1,7 +1,6 @@
 import '../styles/Drink.css';
-import React, {useState} from 'react';
+import { useState } from 'react';
 import Rodal from 'rodal';
-
 
 function Drink(props){
 
