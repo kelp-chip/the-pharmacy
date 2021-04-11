@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { withRouter, Link } from "react-router-dom";
+import "./index.js";
 
 function Confirm(props) {
   const [orderNum, increaseOrder] = useState(1);
@@ -33,6 +34,7 @@ function Confirm(props) {
           to={{
             pathname: "/",
           }}
+          className="store-return"
         >
           Back to the pharmacy
         </Link>
