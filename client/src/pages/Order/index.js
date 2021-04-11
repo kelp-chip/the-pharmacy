@@ -25,7 +25,10 @@ function Order(props) {
   };
 
   const { state } = props.location;
-  const newBag = parseBag(state.bag);
+  let newBag = [];
+  if (state) {
+    newBag = parseBag(state.bag);
+  }
 
   return (
     <div>

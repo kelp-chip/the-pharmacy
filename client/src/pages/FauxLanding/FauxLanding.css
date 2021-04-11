@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  width: 1000px;
+  margin: 30px auto;
+  margin-bottom: 10px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.submit {
+  margin-top: 10px;
+  padding: 5px 1rem;
+  width: 120px;
+}
+
+body {
+  font-family: "PT Serif", serif;
+  text-align: center;
+}
+
+.logo {
+  margin-top: 20px;
+}
+
+marquee {
+  color: rgb(27, 27, 27);
+}

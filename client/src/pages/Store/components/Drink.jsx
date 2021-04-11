@@ -5,30 +5,24 @@ import Rodal from "rodal";
 function Drink({ drink, addToBag }) {
   const [drinkAmt, changeAmt] = useState(1);
   const [visibleRodal, toggleRodal] = useState(false);
-<<<<<<< HEAD
-  // let cartAmt = document.getElementById('addCartAmt').value;
-
-  function changeDrinkAmt(e) {
-    // let amount = document.getElementById('addCartAmt').value;
-    let amount = e.target.value;
-    changeAmt(amount);
-  }
 
   return (
-    <div key={props.i} onClick={() => toggleRodal(true)} className="drink">
-      <img className="drinkImg" src={props.drink.images} alt="hi"></img>
+    <div className="drink">
+      <img
+        className="drinkImg"
+        src={drink.images}
+        alt="hi"
+        onClick={() => {
+          toggleRodal(true);
+        }}
+      ></img>
       <Rodal
         visible={visibleRodal}
-        onClose={() => toggleRodal(false)}
+        onClose={() => {
+          toggleRodal(false);
+        }}
         className="popupStyle"
       >
-=======
-
-  return (
-    <div onClick={() => {toggleRodal(true)}}>
-      <img className="drinkImg" src={drink.images} alt="hi"></img>
-      <Rodal visible={visibleRodal} onClose={() => {toggleRodal(false)}} className="popupStyle">
->>>>>>> 558e6ad09543d3282f64067bb5cc33310006d3df
         <div>
           <h2 className="rodalName">{drink.name.toUpperCase()}</h2>
           <div className="rodalPrice">${drink.price.toFixed(2)}</div>
