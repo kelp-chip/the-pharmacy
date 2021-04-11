@@ -2,7 +2,7 @@ import "../styles/AlcoholList.css";
 import Drink from "../components/Drink.jsx";
 import { useState } from "react";
 
-function AlcoholList({ cart, drinks, addToBag }) {
+function AlcoholList({ cart, drinks, addToBag, incrementCartCount }) {
   return (
     <>
       <div className="drinksContainer">
@@ -12,11 +12,13 @@ function AlcoholList({ cart, drinks, addToBag }) {
               drink={drink}
               key={index}
               addToBag={addToBag}
+              incrementCartCount={incrementCartCount}
             />
           );
         })}
       </div>
     </>
-  )}
+  );
+}
 
 export default AlcoholList;

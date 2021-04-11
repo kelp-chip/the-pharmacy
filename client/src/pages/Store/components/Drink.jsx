@@ -2,7 +2,7 @@ import "../styles/Drink.css";
 import { useState } from "react";
 import Rodal from "rodal";
 
-function Drink({ drink, addToBag }) {
+function Drink({ drink, addToBag, incrementCartCount }) {
   const [drinkAmt, changeAmt] = useState(1);
   const [visibleRodal, toggleRodal] = useState(false);
 
@@ -34,7 +34,10 @@ function Drink({ drink, addToBag }) {
           value={drinkAmt}
           type="number"
           min="1"
-          onChange={(e) => changeAmt(e.target.value)}
+          onChange={async (e) => {
+            await changeAmt(e.target.value);
+            await incrementCartCount();
+          }}
         ></input>
         <button
           className="addToCart"

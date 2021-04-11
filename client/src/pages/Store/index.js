@@ -13,6 +13,15 @@ function Store() {
   const [bag, setBag] = useState(
     JSON.parse(localStorage.getItem("luckysProhibitionBag")) || []
   );
+  const [cartCount, setCartCount] = useState(0);
+
+  const incrementCartCount = async () => {
+    let total = 0;
+    for (let item of bag) {
+      total += item.amount;
+    }
+    await setCartCount(total);
+  };
 
   function addToBag({ name, price, amount }) {
     amount = Number(amount);
@@ -33,7 +42,7 @@ function Store() {
         >
           <div className="cart">
             <img className="cartIcon" src={cart} alt="cart"></img>
-            <div className="circle">2</div>
+            <div className="circle">{cartCount}</div>
           </div>
         </Link>
       </header>
@@ -43,7 +52,11 @@ function Store() {
       <div className="rightBottles">
         <img src={right_bottle} alt="background bottles"></img>
       </div>
-      <AlcoholList drinks={fakeData.drinks} addToBag={addToBag} />
+      <AlcoholList
+        drinks={fakeData.drinks}
+        addToBag={addToBag}
+        incrementCartCount={incrementCartCount}
+      />
     </div>
   );
 }
