@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+import Confirm from "../pages/Confirm";
 import Order from "../pages/Order";
 import Store from "../pages/Store";
 import FauxLanding from "../pages/FauxLanding";
@@ -17,6 +18,7 @@ const Routes = () => {
         <Route exact path="/" component={FauxLanding} />
         <Route path="/store" component={Store} />
         <Route path="/order" component={Order} />
+        <Route path="/confirm" component={Confirm} />
         <Route path="/question" component={QuestionSubmitted} />
         <Route path="/example" component={ProtectedExample} />
         <Route path="*" component={NotFound} />
