@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Order from "../pages/Order";
 import Store from "../pages/Store";
+import Order from "../pages/Order";
 import FauxLanding from "../pages/FauxLanding";
 import QuestionSubmitted from "../pages/QuestionSubmitted";
 import ProtectedExample from "../pages/ProtectedExample";

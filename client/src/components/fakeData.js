@@ -39,9 +39,17 @@ const drinks = [
   },
   {
     id: 2,
-    name: "beer",
+    name: "whiskey",
     price: 2.0,
     description: "tastes good",
+    images:
+      "https://dydza6t6xitx6.cloudfront.net/ci-hendricks-gin-7270fa521eb29536.jpeg,",
+  },
+  {
+    id: 3,
+    name: "moonshine",
+    price: 1.25,
+    description: "also tastes good",
     images:
       "https://dydza6t6xitx6.cloudfront.net/ci-hendricks-gin-7270fa521eb29536.jpeg,",
   },
