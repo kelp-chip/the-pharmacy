@@ -15,7 +15,7 @@ function Drink({ drink, addToBag }) {
   }
 
   return (
-    <div>
+    <div className="drink">
       <img
         className="drinkImg"
         onClick={showRodal}
@@ -38,9 +38,14 @@ function Drink({ drink, addToBag }) {
         ></input>
         <button
           className="addToCart"
-          onClick={(e) =>
-            addToBag({ name: drink.name, price: drink.price, amount: drinkAmt })
-          }
+          onClick={(e) => {
+            closeRodal();
+            addToBag({
+              name: drink.name,
+              price: drink.price,
+              amount: drinkAmt,
+            });
+          }}
           type="submit"
         >
           Add to Bag
