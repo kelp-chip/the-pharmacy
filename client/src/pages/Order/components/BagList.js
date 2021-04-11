@@ -25,6 +25,15 @@ function BagList({ bag, totals }) {
                   </tr>
                 )
             )}
+          <tr>
+            <td> </td>
+            <td> </td>
+            <td>
+              total:{" "}
+              {totals.cost >= 1 ? `$${totals.cost}` : `${totals.cost * 10}¢`}
+            </td>
+            <td> </td>
+          </tr>
         </table>
         <Link
           to={{

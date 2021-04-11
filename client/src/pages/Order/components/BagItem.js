@@ -14,7 +14,6 @@ function BagItem({ drink }) {
         <strong>remove from cart</strong>
       </td>
     </>
-    // : ''}
   );
 }
 
