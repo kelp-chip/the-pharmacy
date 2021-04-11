@@ -11,12 +11,9 @@
 }
 
 .bag-header {
-  font-size: 3rem;
-  padding: 0.5rem 2rem;
+  font-size: 2rem;
 }
 
 .order-note {
-  padding: 1rem 2rem;
-  font-size: 0.875rem;
-  color: rgba(0, 0, 0, 0.85);
+  margin-top: 3em;
 }

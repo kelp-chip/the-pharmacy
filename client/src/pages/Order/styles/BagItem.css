@@ -14,7 +14,7 @@ tr {
   /* border: solid black 2px; */
 }
 
-td {
-  /* background-color: brown; */
-  /* border: solid black 2px; */
+td,
+th {
+  padding: 5px;
 }

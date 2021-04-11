@@ -30,13 +30,13 @@ function Order(props) {
       let output = { amount: 0, cost: 0 };
       oldBag.map((item) => {
         if (item.name == "gin") {
-          output.cost += (item.price * item.amount);
+          output.cost += item.price * item.amount;
           output.amount += item.amount;
         } else if (item.name == "whiskey") {
-          output.cost += (item.price * item.amount);
+          output.cost += item.price * item.amount;
           output.amount += item.amount;
         } else if (item.name == "moonshine") {
-          output.cost += (item.price * item.amount);
+          output.cost += item.price * item.amount;
           output.amount += item.amount;
         }
       });
@@ -52,16 +52,18 @@ function Order(props) {
     <>
       <Layout bag={state.bag} cartCount={state.cartCount} />
       <div className="bag-container">
-        <h1 className="bag-header">Your Bag</h1>
         {state && state.bag.length > 0 ? (
           <>
-            <p className="order-note">Review your order below.</p>
             <BagList className="bag-list" bag={newBag} totals={totals} />
           </>
         ) : (
           <div className="empty-bag">
             <p>Your bag is empty.</p>
             <p>Click below to return to our shop.</p>
+            <img
+              src="https://res.cloudinary.com/dli6sknqy/image/upload/v1618148304/finger_tdppaq.svg"
+              width="50px"
+            ></img>
             <Link
               to={{
                 pathname: "/store",

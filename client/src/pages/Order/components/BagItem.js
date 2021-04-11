@@ -2,16 +2,19 @@ import { useState } from "react";
 import "../styles/BagItem.css";
 
 function BagItem({ drink }) {
+  console.log(drink);
   return (
-    // <tr className="item-container">
     <>
       <td>{drink.amount}</td>
       <td>
         <span className="drink-name">{drink.name} </span>
       </td>
-      <td>{drink.price}</td>
-      <td>delete</td>
+      <td>{drink.total > 1 ? `$${drink.total}` : `${drink.total * 100}¢`}</td>
+      <td>
+        <strong>remove from cart</strong>
+      </td>
     </>
+    // : ''}
   );
 }
 
