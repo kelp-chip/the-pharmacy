@@ -41,7 +41,7 @@ const drinks = [
     id: 2,
     name: "whiskey",
     price: 0.75,
-    description: "tastes good",
+    description: "Garunteed to warm you up in a cold winter.",
     images:
       "https://res.cloudinary.com/dli6sknqy/image/upload/v1618130747/whiskey_mkrcjw.svg",
   },
@@ -49,7 +49,7 @@ const drinks = [
     id: 3,
     name: "moonshine",
     price: 0.5,
-    description: "also tastes good",
+    description: "Mary Sue's moonshine special. Just like mom never made.",
     images:
       "https://res.cloudinary.com/dli6sknqy/image/upload/v1618130747/moonshine_qeop49.svg",
   },
