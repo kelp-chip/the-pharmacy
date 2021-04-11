@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 
 import fakeData from '../../components/fakeData';
@@ -12,11 +12,11 @@ function Store ({ drinks }) {
       <Link
         to={{
           pathname: "/order",
-          // search: "?sort=name",
-          // hash: "#the-hash",
           state: fakeData.drinks,
         }}
-      >Shopping Bag </Link>
+      >
+        Shopping Bag{" "}
+      </Link>
       <AlcoholList drinks={fakeData.drinks} />
     </div>
   );
