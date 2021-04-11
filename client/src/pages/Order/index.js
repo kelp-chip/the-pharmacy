@@ -46,7 +46,6 @@ function Order(props) {
   const { state } = props.location;
   const newBag = parseBag(state.bag, 1);
   const totals = parseBag(state.bag);
-  console.log(totals);
 
   return (
     <div className="bag-container">

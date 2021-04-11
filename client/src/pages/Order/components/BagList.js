@@ -5,7 +5,7 @@ import "../styles/BagList.css";
 
 import BagItem from './BagItem';
 
-function BagList({ bag }) {
+function BagList({ bag, totals }) {
   console.log(bag);
   return (
     <div className="list-container">
@@ -17,9 +17,9 @@ function BagList({ bag }) {
       </div>
       <div className="bag-total">
         <h3>Number of Items</h3>
-        {/* {totalItems} */}
+        {totals.amount}
         <h3>Total Payment</h3>
-        {/* {totalCost} */}
+        {totals.cost}
         <Link
           to={{
             pathname: "/confirm",

@@ -17,6 +17,4 @@ function Confirm(order){
   );
 }
 
-//state: fakeData.drinks,
-
 export default withRouter(Confirm);
