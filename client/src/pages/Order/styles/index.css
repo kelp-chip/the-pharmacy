@@ -1,0 +1,22 @@
+.bag-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "PT Serif", serif;
+}
+
+.bag-container > * {
+  margin: 0;
+}
+
+.bag-header {
+  font-size: 3rem;
+  padding: .5rem 2rem;
+}
+
+.order-note {
+  padding: 1rem 2rem;
+  font-size: .875rem;
+  color: rgba(0, 0, 0, 0.85);
+}
