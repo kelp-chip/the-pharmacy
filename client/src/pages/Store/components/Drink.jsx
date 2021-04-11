@@ -36,18 +36,18 @@ function Drink({ drink, addToBag, incrementCartCount }) {
           min="1"
           onChange={async (e) => {
             await changeAmt(e.target.value);
-            await incrementCartCount();
           }}
         ></input>
         <button
           className="addToCart"
-          onClick={(e) => {
-            closeRodal();
-            addToBag({
+          onClick={async (e) => {
+            await closeRodal();
+            await addToBag({
               name: drink.name,
               price: drink.price,
               amount: drinkAmt,
             });
+            await incrementCartCount();
           }}
           type="submit"
         >
