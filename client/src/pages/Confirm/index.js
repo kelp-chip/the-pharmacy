@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { withRouter, Link } from "react-router-dom";
 
-function Confirm(order) {
+function Confirm(props) {
   const [orderNum, increaseOrder] = useState(1);
+  const { state } = props.location;
+  localStorage.removeItem("luckysProhibitionBag");
 
   return (
     <div>
