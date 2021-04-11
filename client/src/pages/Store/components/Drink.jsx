@@ -1,6 +1,6 @@
-import '../styles/Drink.css';
-import { useState } from 'react';
-import Rodal from 'rodal';
+import "../styles/Drink.css";
+import { useState } from "react";
+import Rodal from "rodal";
 
 function Drink(props) {
   const [drinkAmt, changeAmt] = useState(1);
@@ -22,18 +22,14 @@ function Drink(props) {
   }
 
   return (
-    <div key={props.i}>
-      <h3 className="drinkName" onClick={showRodal}>
-        {props.drink.name[0].toUpperCase() +
-          props.drink.name.substring(1, props.drink.name.length)}
-      </h3>
-      <div className="drinkPrice">${props.drink.price.toFixed(2)}</div>
-      <div className="drinkDesc">"{props.drink.description}"</div>
+    <div key={props.i} onClick={showRodal}>
       <img className="drinkImg" src={props.drink.images} alt="hi"></img>
-      <Rodal visible={visibleRodal} onClose={closeRodal}>
-        <h2 className="rodalName">{props.drink.name.toUpperCase()}</h2>
-        <img className="rodalImg" src={props.drink.images} alt=""></img>
-        <div className="rodalPrice">${props.drink.price.toFixed(2)}</div>
+      <Rodal visible={visibleRodal} onClose={closeRodal} className="popupStyle">
+        <div>
+          <h2 className="rodalName">{props.drink.name.toUpperCase()}</h2>
+          <div className="rodalPrice">${props.drink.price.toFixed(2)}</div>
+        </div>
+        <div className="drinkDesc">"{props.drink.description}"</div>
         <input
           id="addCartAmt"
           className="addCartAmt"

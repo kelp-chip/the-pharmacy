@@ -21,4 +21,34 @@ header {
   /* background-color: blue; */
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.banner {
+  position: relative;
+}
+
+.cart {
+  margin-left: 30px;
+  position: relative;
+}
+
+.cartIcon {
+  position: relative;
+}
+
+.circle {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(235, 235, 235);
+  border-radius: 50px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  right: -38px;
+  top: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "PT Serif", serif;
+  font-size: 24px;
 }

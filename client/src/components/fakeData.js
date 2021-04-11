@@ -32,18 +32,26 @@ const drinks = [
   {
     id: 1,
     name: "gin",
-    price: 1.5,
+    price: 0.6,
     description: "really great stuff my brother Al makes. Super strong too.",
     images:
-      "https://dydza6t6xitx6.cloudfront.net/ci-hendricks-gin-7270fa521eb29536.jpeg,",
+      "https://res.cloudinary.com/dli6sknqy/image/upload/v1618130747/gin_o9ydvm.svg",
   },
   {
     id: 2,
-    name: "beer",
-    price: 2.0,
+    name: "whiskey",
+    price: 0.75,
     description: "tastes good",
     images:
-      "https://dydza6t6xitx6.cloudfront.net/ci-hendricks-gin-7270fa521eb29536.jpeg,",
+      "https://res.cloudinary.com/dli6sknqy/image/upload/v1618130747/whiskey_mkrcjw.svg",
+  },
+  {
+    id: 3,
+    name: "moonshine",
+    price: 0.5,
+    description: "tastes good",
+    images:
+      "https://res.cloudinary.com/dli6sknqy/image/upload/v1618130747/moonshine_qeop49.svg",
   },
 ];
 
