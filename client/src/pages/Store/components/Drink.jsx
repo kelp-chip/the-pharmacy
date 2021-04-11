@@ -2,9 +2,10 @@ import "../styles/Drink.css";
 import { useState } from "react";
 import Rodal from "rodal";
 
-function Drink(props) {
+function Drink({ drink, addToBag }) {
   const [drinkAmt, changeAmt] = useState(1);
   const [visibleRodal, toggleRodal] = useState(false);
+<<<<<<< HEAD
   // let cartAmt = document.getElementById('addCartAmt').value;
 
   function changeDrinkAmt(e) {
@@ -21,11 +22,18 @@ function Drink(props) {
         onClose={() => toggleRodal(false)}
         className="popupStyle"
       >
+=======
+
+  return (
+    <div onClick={() => {toggleRodal(true)}}>
+      <img className="drinkImg" src={drink.images} alt="hi"></img>
+      <Rodal visible={visibleRodal} onClose={() => {toggleRodal(false)}} className="popupStyle">
+>>>>>>> 558e6ad09543d3282f64067bb5cc33310006d3df
         <div>
-          <h2 className="rodalName">{props.drink.name.toUpperCase()}</h2>
-          <div className="rodalPrice">${props.drink.price.toFixed(2)}</div>
+          <h2 className="rodalName">{drink.name.toUpperCase()}</h2>
+          <div className="rodalPrice">${drink.price.toFixed(2)}</div>
         </div>
-        <div className="drinkDesc">"{props.drink.description}"</div>
+        <div className="drinkDesc">"{drink.description}"</div>
         <input
           id="addCartAmt"
           className="addCartAmt"
@@ -36,12 +44,12 @@ function Drink(props) {
         ></input>
         <button
           className="addToCart"
-          onClick={() => {
-            props.submitToCart(props.drink.name, props.drink.price, drinkAmt);
-          }}
+          onClick={(e) =>
+            addToBag({ name: drink.name, price: drink.price, amount: drinkAmt })
+          }
           type="submit"
         >
-          Add To Cart
+          Add to Bag
         </button>
       </Rodal>
     </div>

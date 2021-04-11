@@ -49,10 +49,10 @@ const drinks = [
     id: 3,
     name: "moonshine",
     price: 0.5,
-    description: "tastes good",
+    description: "also tastes good",
     images:
       "https://res.cloudinary.com/dli6sknqy/image/upload/v1618130747/moonshine_qeop49.svg",
-  },
+  }
 ];
 
 module.exports = { fakeProducts, drinks };
