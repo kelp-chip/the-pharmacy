@@ -1,4 +1,4 @@
-import '../Drink.css'
+import '../styles/Drink.css';
 import React, {useState} from 'react';
 import Rodal from 'rodal';
 
